@@ -1,7 +1,8 @@
 #### **CREATE A CUSTOM NAMESPACE THROUGH KUBECTL**
 
 - Log in to the master server through putty.
-- نیم اسپیس ها مجزا کننده کلاستر هستند و با جدا سازی نیسم اسپیس ها ما میتوانیم چندین کلاستر در یخ نود داشته باشیم
+- 
+- NAME space do seprate clusters , we can have any clusters with name space
 
 ```
 kubectl get namespace
