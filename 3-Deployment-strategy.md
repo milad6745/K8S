@@ -98,3 +98,4 @@ Complex to setup.
 Requires mocking service for certain cases.
 
 ### recreate test
+kubectl -f https://github.com/milad-baousi/K8S/blob/main/strategy_recreate.yml
