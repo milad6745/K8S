@@ -98,4 +98,22 @@ Complex to setup.
 Requires mocking service for certain cases.
 
 ### recreate test
+```
 kubectl -f https://github.com/milad-baousi/K8S/blob/main/strategy_recreate.yml
+kubectl edit deployments.apps recreate
+
+when edit deployment all pod terminate and create again
+```
+
+### rolling-update test
+```
+kubectl -f https://github.com/milad-baousi/K8S/blob/main/strategy_recreate.yml
+
+kubectl get deployments.apps rolling-update
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+rolling-update   20/20   20           20          2m43s
+
+ kubectl edit  deployments.apps rolling-update  (change deployment file)
+ view 3 pod terminate recreate and again
+ ```
+ 
