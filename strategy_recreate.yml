@@ -1,0 +1,88 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@milad-baousi 
+AhmadRafiee
+/
+Kubernetes_training_with_DockerMe
+Public
+Code
+Issues
+Pull requests
+4
+Actions
+Projects
+Security
+Insights
+Kubernetes_training_with_DockerMe/manifests/deployment/strategy_recreate.yml
+@AhmadRafiee
+AhmadRafiee add files
+Latest commit 414466f on Dec 2, 2021
+ History
+ 1 contributor
+44 lines (44 sloc)  792 Bytes
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recreate
+  annotations:
+    kubernetes.io/change-cause: ver1
+spec:
+  selector:
+    matchLabels:
+      app: recreate
+  replicas: 10
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: recreate
+        svc: example
+    spec:
+      containers:
+        - name: hello-world
+          image: ahmadrafiee/go-hello-world:1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              memory: 20Mi
+              cpu: 20m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recreate
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: recreate
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Kubernetes_training_with_DockerMe/strategy_recreate.yml at main · AhmadRafiee/Kubernetes_training_with_DockerMe
