@@ -24,7 +24,12 @@ Damonset
 - create by api server
 - deploy login agent log agent monitor agent
 
-
-
+daemon set add and check
+```
+kubectl apply -f https://github.com/milad-baousi/K8S/blob/main/daemonset.yaml
+kubectl get ds
+NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+hello-world   1         1         0       1            0           <none>          44h
+```
 
 
