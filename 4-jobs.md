@@ -16,6 +16,39 @@ Syntax similar cron on Linux server.
 
 ### Practice
 Create a new JOB
+
+
+**job.yaml**
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ping
+spec:
+  activeDeadlineSeconds: 600
+  template:
+    metadata:
+      name: ping
+    spec:
+      containers:
+        - name: ping
+          image: perl:slim
+          command: ["perl"]
+          args: ["-Mbignum=bpi", "-wle", "print bpi(1000)"]
+      restartPolicy: Never
 ```
 
+```
+kubectl get pod -A
+default       ping-ckr22                                    0/1     ContainerCreating   0            12s
+```
+```
+kubectl get job
+ping   1/1           62s        66s
+```
+
+**delete job**
+```
+ kubectl delete job ping
+job.batch "ping" deleted
 ```
