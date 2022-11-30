@@ -40,8 +40,9 @@ Not Ready !!
 kubectl logs   -n kube-system  metrics-server-8ff8f88c6-pdwkm
 cannot validate certificate for 172.18.0.2 because it doesn't contain any IP SANs" node="milad-control-plane"
 I1130 09:50:49.640532       1 server.go:187] "Failed probe" probe="metric-storage-ready" err="no metrics to serve"
-
-#change mettric configuration
+```
+**change mettric configuration**
+```
 kubectl edit deployments.apps -n kube-system  metrics-server
        
         - --cert-dir=/tmp
@@ -52,7 +53,8 @@ kubectl edit deployments.apps -n kube-system  metrics-server
         - --metric-resolution=15s
 
  ```
- **after installation**
+
+**after installation**
 ```
 kubectl top pod
 NAME                CPU(cores)   MEMORY(bytes)
@@ -90,8 +92,9 @@ spec:
             cpu: 100m
             memory: 10Mi
 ```
+
 **deploy HPA**
-'''
+```
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -128,7 +131,7 @@ NAME         REFERENCE               TARGETS           MINPODS   MAXPODS   REPLI
 php-apache   Deployment/php-apache   88%/10%, 1%/50%   3         10        10         61m     -> up 10 replicas
 ```
 
-increace POD By HPA
+**increace POD By HPA**
 ```
 kubectl get pod -A
 kube-system   php-apache-69c9496c4f-9v7lg                   1/1     Running   0             62m
