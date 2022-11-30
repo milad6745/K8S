@@ -125,7 +125,7 @@ kubectl apply -f 02-HPA.yaml -n kube-system
 
 kubectl get horizontalpodautoscalers.autoscaling
 NAME         REFERENCE               TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
-php-apache   Deployment/php-apache   88%/10%, 1%/50%   3         10        10         61m
+php-apache   Deployment/php-apache   88%/10%, 1%/50%   3         10        10         61m     -> up 10 replicas
 ```
 
 increace POD By HPA
