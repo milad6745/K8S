@@ -81,3 +81,12 @@ spec:
             cpu: 100m
             memory: 10Mi
 ```
+**check pod connect to vpa
+```
+kubectl apply -f  01-php-pod.yaml
+deployment.apps/php-apache configured
+┌──(root💀kali)-[/home/kuber]
+└─# kubectl get vpa
+NAME      MODE   CPU    MEM       PROVIDED   AGE
+php-vpa   Auto   100m   262144k   True       2m12s
+```
