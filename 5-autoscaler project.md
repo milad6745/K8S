@@ -43,7 +43,7 @@ spec:
         controlledResources: ["cpu", "memory"]
 ```
 
-**check vpa
+**check vpa***
 ```
 kubectl apply -f  01-vpa.yaml
 verticalpodautoscaler.autoscaling.k8s.io/php-vpa created
@@ -51,4 +51,33 @@ verticalpodautoscaler.autoscaling.k8s.io/php-vpa created
 └─# kubectl get vpa
 NAME      MODE   CPU   MEM   PROVIDED   AGE
 php-vpa   Auto                          5s
+```
+**ADD pod to vpa**
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  selector:
+    matchLabels:
+      run: php-apache
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: k8s.gcr.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 250m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 10Mi
 ```
