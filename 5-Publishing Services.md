@@ -16,8 +16,10 @@ Kubernetes ServiceTypes allow you to specify what kind of Service you want.
   - nod port : port that listen on nod 
   
 - LoadBalancer: Exposes the Service externally using a cloud provider's load balancer.
-()
+  - need a publiv ip address from provider on cluster
+  - 
+
 - ExternalName: Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value.
  No proxying of any kind is set up.
-
+  - use name 
 Exteral ip have all functinality of publish service
