@@ -19,3 +19,36 @@ vpa-updater-8567bff646-xkjcg                  0/1     ContainerCreating   0     
 
 #then use vpa
 ```
+
+**use vpa pod
+```
+apiVersion: "autoscaling.k8s.io/v1"
+kind: VerticalPodAutoscaler
+metadata:
+  name: php-vpa
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: php-apache
+  resourcePolicy:
+    containerPolicies:
+      - containerName: '*'
+        minAllowed:
+          cpu: 100m
+          memory: 50Mi
+        maxAllowed:
+          cpu: 1
+          memory: 500Mi
+        controlledResources: ["cpu", "memory"]
+```
+
+**check vpa
+```
+kubectl apply -f  01-vpa.yaml
+verticalpodautoscaler.autoscaling.k8s.io/php-vpa created
+┌──(root💀kali)-[/home/kuber]
+└─# kubectl get vpa
+NAME      MODE   CPU   MEM   PROVIDED   AGE
+php-vpa   Auto                          5s
+```
