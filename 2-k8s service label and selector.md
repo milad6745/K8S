@@ -61,10 +61,10 @@ nginx-service   ClusterIP   10.96.50.212   <none>        80/TCP    9m26s
 
 اند پوینت پاد های زیر مجموعه اون سرویس رو به ما نشون میده. 
 	
-'''
+```
 kubectl get ep
 NAME            ENDPOINTS                       AGE
 kubernetes      172.18.0.2:6443                 8d
 nginx-service   10.244.0.22:80,10.244.0.23:80   13m
-'''
+```
 	
