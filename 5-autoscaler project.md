@@ -20,7 +20,7 @@ vpa-updater-8567bff646-xkjcg                  0/1     ContainerCreating   0     
 #then use vpa
 ```
 
-**use vpa pod
+**use vpa pod**
 ```
 apiVersion: "autoscaling.k8s.io/v1"
 kind: VerticalPodAutoscaler
