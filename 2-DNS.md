@@ -6,3 +6,5 @@ kubectl get services kube-dns --namespace=kube-system
 NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)         AGE
 kube-dns   ClusterIP   10.0.0.10    <none>        53/UDP,53/TCP   8m
 ```
+
+refrences: https://kubernetes.io/
