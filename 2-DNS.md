@@ -8,6 +8,7 @@ kube-dns   ClusterIP   10.0.0.10    <none>        53/UDP,53/TCP   8m
 ```
 
 ## test DNS
+run a container for DNS test
 ```
 kubectl run curl --image=radial/busyboxplus:curl -i --tty
 ```
