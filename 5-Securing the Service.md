@@ -16,6 +16,7 @@ NAME                  TYPE                                  DATA      AGE
 nginxsecret           kubernetes.io/tls                     2         1m
 ```
 **And also the configmap:**
+
 ```
 kubectl create configmap nginxconfigmap --from-file=default.conf
 configmap/nginxconfigmap created
