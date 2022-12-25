@@ -56,6 +56,7 @@ egress: Each NetworkPolicy may include a list of allowed egress rules
 - any pod in the default namespace with the label role=frontend
 - any pod in a namespace with the label project=myproject
 - IP addresses in the ranges 172.17.0.0–172.17.0.255 and 172.17.2.0–172.17.255.255 (ie, all of 172.17.0.0/16 except 172.17.1.0/24)
+
 3- (Egress rules) allows connections from any pod in the default namespace with the label role=db to CIDR 10.0.0.0/24 on TCP port 5978
 
 
