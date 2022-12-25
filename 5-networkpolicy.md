@@ -1,9 +1,10 @@
 ## The NetworkPolicy resource
-See the NetworkPolicy reference for a full definition of the resource.
 
+See the NetworkPolicy reference for a full definition of the resource.
 An example NetworkPolicy might look like this:
 
 service/networking/networkpolicy.yaml Copy service/networking/networkpolicy.yaml to clipboard
+```
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -38,3 +39,4 @@ spec:
       ports:
         - protocol: TCP
           port: 5978
+```
