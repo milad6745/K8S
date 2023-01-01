@@ -61,6 +61,7 @@ egress: Each NetworkPolicy may include a list of allowed egress rules
 
 
 **network policy Example**
+
 we have 3 pod on my cluster for this reason
 
 ![Capture](https://user-images.githubusercontent.com/113288076/210169200-f2a1a729-115f-4f89-829d-4b74e2c0cdc1.PNG)
