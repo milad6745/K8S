@@ -60,4 +60,57 @@ egress: Each NetworkPolicy may include a list of allowed egress rules
 3- (Egress rules) allows connections from any pod in the default namespace with the label role=db to CIDR 10.0.0.0/24 on TCP port 5978
 
 
+**network policy Example**
+we have 3 pod on my cluster for this reason
+
+![Capture](https://user-images.githubusercontent.com/113288076/210169200-f2a1a729-115f-4f89-829d-4b74e2c0cdc1.PNG)
+
+we want to filter access pod c to pod b with this yaml file
+![Ca1pture](https://user-images.githubusercontent.com/113288076/210169233-d392cdea-5fcb-4a4c-809e-1d6239555d5c.PNG)
+
+and then we must install calico
+kubectl apply -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/release-1.6/config/v1.6/calico.yaml
+
+
+**other network policy sample**
+![image](https://user-images.githubusercontent.com/113288076/210169395-cd4e46ee-28bc-468b-a2b7-a19cad847c21.png)
+
+
+**other sample for ingeres and egress**
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 172.17.0.0/16
+            except:
+              - 172.17.1.0/24
+        - namespaceSelector:
+            matchLabels:
+              project: myproject
+        - podSelector:
+            matchLabels:
+              role: frontend
+      ports:
+        - protocol: TCP
+          port: 6379
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 10.0.0.0/24
+      ports:
+        - protocol: TCP
+          port: 5978
+```
 
