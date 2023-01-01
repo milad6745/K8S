@@ -69,8 +69,10 @@ we want to filter access pod c to pod b with this yaml file
 ![Ca1pture](https://user-images.githubusercontent.com/113288076/210169233-d392cdea-5fcb-4a4c-809e-1d6239555d5c.PNG)
 
 and then we must install calico
-kubectl apply -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/release-1.6/config/v1.6/calico.yaml
 
+```
+kubectl apply -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/release-1.6/config/v1.6/calico.yaml
+```
 
 **other network policy sample**
 ![image](https://user-images.githubusercontent.com/113288076/210169395-cd4e46ee-28bc-468b-a2b7-a19cad847c21.png)
