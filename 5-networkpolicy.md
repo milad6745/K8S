@@ -78,7 +78,6 @@ kubectl apply -f https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/releas
 **other network policy sample**
 ![image](https://user-images.githubusercontent.com/113288076/210169395-cd4e46ee-28bc-468b-a2b7-a19cad847c21.png)
 
-
 **other sample for ingeres and egress**
 ```
 apiVersion: networking.k8s.io/v1
