@@ -1,4 +1,3 @@
-
 ### replica and deployment
 POD < replica <  deployment 
 
@@ -133,3 +132,4 @@ deployment.apps/hello-world rolled back
 #other revsion
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
 ```
+T
