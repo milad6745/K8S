@@ -3,6 +3,7 @@ Kubernetes' EndpointSlice API provides a way to track network endpoints within a
 EndpointSlices offer a more scalable and extensible alternative to Endpoints
 
 **Create A new Endpoint**
+
 ```
 apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
