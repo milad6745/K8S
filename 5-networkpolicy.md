@@ -40,6 +40,7 @@ spec:
         - protocol: TCP
           port: 5978
 ```
+
 Mandatory Fields: As with all other Kubernetes config, a NetworkPolicy needs apiVersion, kind, and metadata fields
 spec: NetworkPolicy spec has all the information needed to define
 podSelector: Each NetworkPolicy includes a podSelector which selects the grouping of pods to which the policy applies
