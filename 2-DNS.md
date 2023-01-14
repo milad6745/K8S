@@ -1,4 +1,5 @@
 ## DNS
+
 Kubernetes offers a DNS cluster addon Service that automatically assigns dns names to other Services. 
 You can check if it's running on your cluster:
 ```
