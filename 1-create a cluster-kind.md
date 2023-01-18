@@ -49,7 +49,7 @@ alias klo='kubectl logs -f'
 
 
 
-## Installation
+# Installation Kind
 #### To install, download the binary for your platform from “Assets”, then rename it to kind (or perhaps kind.exe on Windows) and place this into your $PATH at your preferred binary installation directory.
 
 ```bash 
