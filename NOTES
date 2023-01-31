@@ -1,0 +1,6 @@
+**pull image from  local host to kind**
+ kind load docker-image  busybox:1.28
+ 
+ ** login with docker **
+docker login  -u milad6745
+Password:Milad@123
