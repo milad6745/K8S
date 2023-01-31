@@ -41,4 +41,15 @@ spec:
       type: Directory
 ```      
 
-      
+test example ) :
+```
+**cehck node
+kubectl get pod -o wide
+NAME             READY   STATUS    RESTARTS   AGE   IP           NODE                 NOMINATED NODE   READINESS GATES
+test-host-path   1/1     Running   1          95m   10.244.0.5   kind-control-plane   <none>           <none>
+docker exec -it kind-control-plane /bin/bash
+** create a directory on mnt
+root@kind-control-plane:/mnt# mkdir /mnt/backup
+** check mount from /mnt tp /opt
+kubectl exec -it pod/test-host-path   -- ls -lha /opt
+```
