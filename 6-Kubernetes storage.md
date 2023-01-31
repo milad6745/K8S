@@ -77,3 +77,13 @@ spec:
   - name: cache-volume
     emptyDir: {}
 ```
+## PV & PVC (persistent volume - persistent volume clain)
+سرویس PVC سمت کاربر و PV سمت ادمین است.
+پی وی PV به ما استوریج میدهد .
+
+![Storageclass blog (1)-1](https://user-images.githubusercontent.com/113288076/215782708-8988d9b1-9a17-41b0-968f-b031c7330fd8.png)
+
+ایراد : نیاز به ادمین دارد . PV رو ایجاد کنه بر اون اساس داخل ریموت استوریج ساخته بشه.
+این فلو منوال هست و در کلاستر های بزرگ ادمین باید صد ها PV ایجاد کنه .
+### storage class : 
+ادمین استوریج کلاس درست میکنه،  دسترسی رو استور میکنند و کاربران میتوندPVC بسازند اما نمیتونن بازش کنند .   این فلو حالا داینامیک میشه .  dynamic provisioning
