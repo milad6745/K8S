@@ -18,4 +18,27 @@
 ینی یه دایرکتوری از هاست رو مپ کنیم به یه دایرکتوری در پادمان
 
 
+example ) 
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-host-path
+spec:
+  containers:
+  - image: busybox:1.28
+    name: test-host-path-container
+    command: ['sh', '-c', 'sleep 3600']
+    volumeMounts:
+    - mountPath: /opt/
+      name: test-volume
+  volumes:
+  - name: test-volume
+    hostPath:
+      # directory location on host
+      path: /mnt/
+      # this field is optional
+      type: Directory
+```      
+
       
