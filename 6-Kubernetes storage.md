@@ -53,3 +53,6 @@ root@kind-control-plane:/mnt# mkdir /mnt/backup
 ** check mount from /mnt to /opt
 kubectl exec -it pod/test-host-path   -- ls -lha /opt
 ```
+### emptydir
+مپ دایرکتوری خالی به پادمون - بعد از اینکه پادمون از بین میره دایرکتوریهم از بیم میره
+دلیل : دایکرتوری برای یه بازه زمانی نیاز داشته که داخلش بنویشه، اصولا توی رم لود میکنند
