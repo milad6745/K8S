@@ -50,6 +50,6 @@ test-host-path   1/1     Running   1          95m   10.244.0.5   kind-control-pl
 docker exec -it kind-control-plane /bin/bash
 ** create a directory on mnt
 root@kind-control-plane:/mnt# mkdir /mnt/backup
-** check mount from /mnt tp /opt
+** check mount from /mnt to /opt
 kubectl exec -it pod/test-host-path   -- ls -lha /opt
 ```
