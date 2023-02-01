@@ -211,3 +211,9 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 - recycle
 - delete : default
 
+
+### Volume phase
+- avalilible : هنوز باند نشده و آماده باند شدنه
+- bound : حالت ایده آل
+- relesed: claim deleted and resourse is not claimed by cluster
+- failed : vloume has failed and automatic reclamation
