@@ -91,4 +91,96 @@ spec:
 من یه PVC میسازم با استوریج کلاس اتوماتیک PV و والوم ساخته میشوند.
 
 
+** check storage class and pv and pvc
+```
+kubectl get sc
+NAME                 PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+standard (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  25h
+
+get pv
+No resources found
+root@milad-ubuntu:/mnt# kubectl get pvc
+No resources found in default namespace
+```
+example ):
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: wordpress
+    tier: mysql
+  clusterIP: None
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: mysql
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+```
+check example
+```
+kubectl get pvc
+NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+mysql-pv-claim   Bound    pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6   20Gi       RWO            standard       13s
+root@milad-ubuntu:/home/milad/kuber# kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS   REASON   AGE
+pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6   20Gi       RWO            Delete           Bound    default/mysql-pv-claim   standard                5s
+root@milad-ubuntu:/home/milad/kuber# kubectl get service
+NAME              TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+kubernetes        ClusterIP   10.96.0.1    <none>        443/TCP    25h
+wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
+```
 
