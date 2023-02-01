@@ -228,3 +228,59 @@ persistentvolume/pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6 patched
 - bound : حالت ایده آل
 - relesed: claim deleted and resourse is not claimed by cluster
 - failed : vloume has failed and automatic reclamation
+
+**create pv and pvc and connect pod **
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-pv-pod
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: task-pv-claim
+  containers:
+    - name: task-pv-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
+```
+**check example**
+```
+kubectl get pv task-pv-volume
+kubectl get pvc task-pv-claim
+kubectl get pod task-pv-pod
+kubectl exec -it task-pv-pod -- /bin/bash
+```
