@@ -211,7 +211,7 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 - recycle
 - delete : default
 
-** change reclaim policy on pv **
+**change reclaim policy on pv**
 ```
 kubectl get pv
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS   REASON   AGE
