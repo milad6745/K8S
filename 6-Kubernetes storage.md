@@ -91,7 +91,7 @@ spec:
 من یه PVC میسازم با استوریج کلاس اتوماتیک PV و والوم ساخته میشوند.
 
 
-** check storage class and pv and pvc
+** check storage class and pv and pvc **
 ```
 kubectl get sc
 NAME                 PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
@@ -184,3 +184,14 @@ kubernetes        ClusterIP   10.96.0.1    <none>        443/TCP    25h
 wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 ```
 
+با این روش یه PV بصورت اتوماتیک ساخته شد، به واسطه استوریج کلاس
+
+## Access Modes
+- read write once :  
+یه والیومیه که  پاد میتونه روش نخونه و بنویسه ، جنرال ترین مدل هست
+- read only many :
+یه والیومیه که پاد ها میتونن ازش بخونن
+- read write Many
+-یه والیومیه که قابلیت خواندن نوشتن داره
+- read wirte once
+فقط از یه پاد میشه روش خواند و نوشت
