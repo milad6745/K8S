@@ -211,6 +211,17 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 - recycle
 - delete : default
 
+** change reclaim policy on pv **
+```
+kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS   REASON   AGE
+pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6   20Gi       RWO            Delete           Bound    default/mysql-pv-claim   standard                95m
+
+kubectl patch pv pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6  -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+persistentvolume/pvc-379a333e-e115-450a-8fa8-c0f74a5d40d6 patched
+```
+
+
 
 ### Volume phase
 - avalilible : هنوز باند نشده و آماده باند شدنه
