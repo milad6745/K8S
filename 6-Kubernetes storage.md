@@ -284,3 +284,23 @@ kubectl get pvc task-pv-claim
 kubectl get pod task-pv-pod
 kubectl exec -it task-pv-pod -- /bin/bash
 ```
+### Snapshot volume
+- create snapshot
+- delete snapshot
+- list snapshot
+**create snapshot**
+'''
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: new-snapshot-test
+spec:
+  volumeSnapshotClassName: csi-hostpath-snapclass
+  source:
+    persistentVolumeClaimName: pvc-test
+```
+
+**list snap shot**
+```
+ kubectl get volumesnapshot
+```
