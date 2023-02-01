@@ -77,7 +77,7 @@ spec:
   - name: cache-volume
     emptyDir: {}
 ```
-## PV & PVC (persistent volume - persistent volume clain)
+## PV & PVC (persistent volume - persistent volume claim)
 سرویس PVC سمت کاربر و PV سمت ادمین است.
 پی وی PV به ما استوریج میدهد .
 
@@ -87,3 +87,4 @@ spec:
 این فلو منوال هست و در کلاستر های بزرگ ادمین باید صد ها PV ایجاد کنه .
 ### storage class : 
 ادمین استوریج کلاس درست میکنه،  دسترسی رو استور میکنند و کاربران میتوندPVC بسازند اما نمیتونن بازش کنند .   این فلو حالا داینامیک میشه .  dynamic provisioning
+
