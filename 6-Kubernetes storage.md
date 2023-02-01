@@ -186,7 +186,7 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 
 با این روش یه PV بصورت اتوماتیک ساخته شد، به واسطه استوریج کلاس
 
-** dynamic provision and static provision **
+**dynamic provision and static provision**
 
 مدل استاتیک : درخواست برای ساخت PV ارسال میشه بعد PVC ساخته میشه و به هم باند میشن
 مدل داینامیک : PVC ساهخته میشه و بر اسا اون PV ساخته میشه و به هم باند میشن
