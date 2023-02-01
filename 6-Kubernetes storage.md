@@ -188,6 +188,10 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 
 ** dynamic provision and static provision **
 
+مدل استاتیک : درخواست برای ساخت PV ارسال میشه بعد PVC ساخته میشه و به هم باند میشن
+مدل داینامیک : PVC ساهخته میشه و بر اسا اون PV ساخته میشه و به هم باند میشن
+
+
 
 ## Access Modes
 - read write once :  
@@ -199,4 +203,11 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 - read wirte once
 فقط از یه نود میشه روش خواند و نوشت
 ![accessmod](https://user-images.githubusercontent.com/113288076/216014017-d194f579-34e7-4716-8650-8701671a8d01.PNG)
+
+
+### reclaim policy 
+وقتی PV پاک میشه چه مدلی باشه :
+- retain : دستی Reclam
+- recycle
+- delete : default
 
