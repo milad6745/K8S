@@ -186,12 +186,17 @@ wordpress-mysql   ClusterIP   None         <none>        3306/TCP   20s
 
 با این روش یه PV بصورت اتوماتیک ساخته شد، به واسطه استوریج کلاس
 
+** dynamic provision and static provision **
+
+
 ## Access Modes
 - read write once :  
-یه والیومیه که  پاد میتونه روش نخونه و بنویسه ، جنرال ترین مدل هست
+یه والیومیه که  یه نود میتونه روش بخونه و بنویسه ، جنرال ترین مدل هست
 - read only many :
 یه والیومیه که پاد ها میتونن ازش بخونن
 - read write Many
 -یه والیومیه که قابلیت خواندن نوشتن داره
 - read wirte once
-فقط از یه پاد میشه روش خواند و نوشت
+فقط از یه نود میشه روش خواند و نوشت
+![accessmod](https://user-images.githubusercontent.com/113288076/216014017-d194f579-34e7-4716-8650-8701671a8d01.PNG)
+
