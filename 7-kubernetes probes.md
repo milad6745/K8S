@@ -99,6 +99,7 @@ spec:
               port: 2222
 ```
 #### check liveness readyness
+
 ```
 kubectl describe pod nginx-85d69968d9-j6vlg -n kube-system
  
