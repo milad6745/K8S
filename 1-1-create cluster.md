@@ -59,9 +59,18 @@ kind create cluster
     مشخص کردن مسیر فایل kubeconfig که برای دسترسی به کلاستر استفاده می‌شود.
 
 مثال:
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+```
 
 ```bash
 kind create cluster --config config.yaml --name my-cluster --image kindest/node:v1.21.1
 ```
+در این مثال، یک کلاستر سه نودی ایجاد می‌شود: یک نود کنترل‌پلن و دو نود کارگر.
 
 در این مثال، یک کلاستر با نام `my-cluster` و تصویر مشخص شده برای نسخه ۱.۲۱.۱ ایجاد می‌شود.
