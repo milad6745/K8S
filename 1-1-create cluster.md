@@ -61,7 +61,7 @@ kind create cluster
 مثال:
 
 ```bash
-kind create cluster --name my-cluster --image kindest/node:v1.21.1
+kind create cluster --config config.yaml --name my-cluster --image kindest/node:v1.21.1
 ```
 
 در این مثال، یک کلاستر با نام `my-cluster` و تصویر مشخص شده برای نسخه ۱.۲۱.۱ ایجاد می‌شود.
